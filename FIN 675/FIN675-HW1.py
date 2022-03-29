@@ -5,6 +5,8 @@ Created on Fri Oct  8 08:21:00 2021
 @author: seph
 """
 
+### Yield Curve Calculation from US T-bill spot rate ###
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,8 +14,6 @@ from sympy.solvers import solve
 from sympy import Symbol
 import numpy_financial as npf
 from scipy.optimize import fsolve
-
-### Yield Curve Calculation from US T-bill spot rate ###
 
 yields = pd.read_csv('HWK1_bond_yields.csv', 
                           parse_dates = True, 
