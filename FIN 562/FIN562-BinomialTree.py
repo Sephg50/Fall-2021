@@ -6,9 +6,9 @@ Created on Mon Nov 22 14:13:24 2021
 @author: seph
 """
 
-from math import log, sqrt, pi, exp
-
 ### Binomial Tree Calculator with variable inputs ###
+
+from math import log, sqrt, pi, exp
 
 S = 40
 K = 40
