@@ -13,7 +13,7 @@ from sympy import Symbol
 import numpy_financial as npf
 from scipy.optimize import fsolve
 
-# Calculation of Yield Curves based on US T-bill spot rate
+### Yield Curve Calculation from US T-bill spot rate ###
 
 yields = pd.read_csv('HWK1_bond_yields.csv', 
                           parse_dates = True, 
