@@ -5,14 +5,12 @@ Created on Thu Dec  9 08:18:03 2021
 @author: seph
 """
 
-"""FIN 683 FINAL"""
+### Final Exam with 4-Fund Portfolio Optimization ### 
 
 import pandas as pd
 import numpy as np
 import statsmodels.formula.api as smf
 import scipy.optimize as optimize
-
-### Final Exam with 4-Fund Portfolio Optimization ### 
 
 # Question 7
 
