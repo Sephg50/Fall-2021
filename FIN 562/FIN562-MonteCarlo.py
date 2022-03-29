@@ -5,12 +5,11 @@ Created on Thu Nov 18 17:39:12 2021
 @author: sepeh
 """
 
+### Option Pricing with Monte Carlo Simulation ###
+
 from math import sqrt, exp
 import pandas as pd
 import numpy as np
-
-
-### Option Pricing with Monte Carlo Simulation ###
 
 S = 310
 K = 300
