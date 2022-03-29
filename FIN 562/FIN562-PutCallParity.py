@@ -5,9 +5,9 @@ Created on Sun Nov 28 15:30:29 2021
 @author: seph
 """
 
-from math import exp
-
 ### Option pricing with put-call parity calculator ###
+
+from math import exp
 
 S = 19 - 2*exp(-0.04*(2/12))
 K = 20
