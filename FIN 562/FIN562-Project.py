@@ -6,7 +6,7 @@ Created on Tue Nov 23 12:09:40 2021
 @author: seph
 """
 
-### European Put Option pricing with BSM Model, 3-step Binomial Tree, and Monte Carlo Simulation ###
+### European and Asian Put Option pricing with BSM Model, 3-step Binomial Tree, and Monte Carlo Simulation ###
 
 import pandas as pd
 import numpy as np
@@ -17,6 +17,8 @@ prices = pd.read_csv('gold_prices.csv', parse_dates = True,
                      index_col = 'observation_date')
 prices = prices.rename(columns = {'GOLDAMGBD228NLBM' : 'Price'})
 prices.index.names = ['Date']
+
+# 1. Input of option variables 
 
 S = prices['Price'].iloc[0]
 T = 1/12
@@ -30,6 +32,8 @@ size = 100
 print(f'Spot Price: {S} \nStrike Price: {K} \ncontinuously-compounded risk-free rate = {r} p.a.\ndividend yield = {q} p.a.\nstdev = {sigma} p.a. \nT = {T}')
 print('----------------------------------------------------------------')
 
+# 2. BSM Model
+
 def d1(S,K,T,r,q,sigma):
     return(log(S/K)+((r-q)+sigma**2/2)*T)/(sigma*sqrt(T))
 def d2(S,K,T,r,q,sigma):
@@ -40,6 +44,7 @@ def bs_put(S,K,T,r,q,sigma):
     return K*exp(-r*T)-S*exp(-q*T)+bs_call(S,K,T,r,q,sigma)
 print(f'Black-Scholes Model: \n European Put option price = {bs_put(S,K,T,r,q,sigma) * size}')
 
+# 3. 3-step Binomial Tree Model
 steps = 3
 
 T = (1/12)/3
@@ -80,6 +85,8 @@ F_put = (p * Fu_put + (1-p) * Fd_put) * exp(-r * T)
 
 print(f'\nBinomial tree with {steps} steps: \n European Put option price = {F_put * size}')
 
+# 4. Monte Carlo Simulation
+
 trials = 1000
 T = 1/12
 
@@ -106,6 +113,8 @@ se = df['put'].std() / sqrt(trials)
 
 print(f'\nMonte Carlo Simulation with {trials} trials:')
 print(f' European Put option price = {put_price * size} \n  95% Confidence Interval: [{(put_price - 1.965*se)*size}, {(put_price + 1.965*se)*size}]')
+
+# 5. Asian Put Option Pricing
 
 d_asian = []
 T = 1/252
