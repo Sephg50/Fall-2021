@@ -5,10 +5,10 @@ Created on Tue Nov 16 16:56:51 2021
 @author: seph
 """
 
+### Option Pricing with Black-Scholes-Merton Model ###
+
 from math import log, sqrt, exp
 from scipy.stats import norm
-
-### Option Pricing with Black-Scholes-Merton Model ###
 
 S = 19
 K = 20   
