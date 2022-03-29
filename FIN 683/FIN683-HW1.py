@@ -5,10 +5,10 @@ Created on Fri Oct 15 10:17:45 2021
 @author: seph
 """
 
+### Analysis of historical U.S. Stock Market Returns ###
+
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
 # 1. Cleaning and preparing dataframe of stock market returns
